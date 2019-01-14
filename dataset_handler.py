@@ -2,7 +2,7 @@ import os
 
 
 class DatasetParser:
-    def __init__(self, path):
+    def __init__(self, path: str):
         self.path = path
         nodes_file = open(os.path.join(self.path, 'nodes.csv'), 'r')
         edges_file = open(os.path.join(self.path, 'edges.csv'), 'r')
@@ -27,3 +27,17 @@ class DatasetParser:
 
     def edges_list(self):
         return self.__edges_list
+
+
+def write_output(path: str, groups: str):
+    groups_file = open(os.path.join(path, 'groups.csv'), 'w+')
+    group_edges_file = open(os.path.join(path, 'group-edges.csv'), 'w+')
+
+    for group in range(0, len(groups)):
+        groups_file.write(str(group+1) + '\n')
+        for element in groups[group].nodes():
+            group_edges_file.write(str(element) + ',' + str(group+1) + '\n')
+
+    groups_file.close()
+    group_edges_file.close()
+
