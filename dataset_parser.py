@@ -1,5 +1,6 @@
 import os
 
+
 class DatasetParser:
     def __init__(self, path):
         self.path = path
@@ -17,7 +18,6 @@ class DatasetParser:
             node1, node2 = line.strip().split(',')
             self.__edges_list.append((int(node1), int(node2)))
             line = edges_file.readline()
-
 
         nodes_file.close()
         edges_file.close()

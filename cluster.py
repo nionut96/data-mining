@@ -18,7 +18,6 @@ class Cluster:
                 else:
                     cs += 1
         return cs / 2 * ms
-        #return cs / 2 * ms + cs + cs / 2 * (self.__graph.node_count() - ms) + cs
 
     def __contains__(self, node):
         return node in self.__node_set
