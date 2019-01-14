@@ -13,6 +13,7 @@ def max_cl(cluster: dict):
             value = c
     return value
 
+
 def kmeans(graph: UndirectedGraph, cluster_count: int):
     initial_clusters = [n for n in graph.nodes()]
     random.shuffle(initial_clusters)

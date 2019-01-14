@@ -11,7 +11,6 @@ class DatasetParser:
             self.__nodes_count = int(line.strip())
             line = nodes_file.readline()
 
-
         self.__edges_list = []
         line = edges_file.readline()
         while line != '':
