@@ -12,12 +12,15 @@ def cluster(graph: UndirectedGraph):
             edges[(node, neigh)] = 10
             edges[(neigh, node)] = 10
             steps += 1
-    steps = int(10 * steps / 100) + 1
+    steps = int(1 * steps / 100) + 1
     nodes = [node for node in graph.nodes()]
 
-    for iteration in range(10000):
+    for iteration in range(100):
+        print('Iteration ' + str(iteration))
+
         for i in range(len(nodes)):
             # ant = nodes[randint(0, len(nodes)-1)]
+            # print('Node ' + str(nodes[i]))
             ant = nodes[i]
             for step in range(steps):
                 next_nodes = graph.neighbors(ant)
@@ -38,6 +41,7 @@ def cluster(graph: UndirectedGraph):
                 edges[(next_node, ant)] += 0.1
                 edges[(ant, next_node)] += 0.1
                 ant = next_node
+
     suma = 0
     for i in range(len(nodes)):
         for j in range(i+1, len(nodes)):
@@ -46,6 +50,7 @@ def cluster(graph: UndirectedGraph):
                 suma += edges[(nodes[i], nodes[j])]
     suma = 2 * suma / len(edges)
     print(suma)
+
     cluster_list = []
     while len(nodes) != 0:
         node = nodes.pop()
