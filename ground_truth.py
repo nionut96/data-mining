@@ -47,13 +47,13 @@ class GroundTruth:
             ground_truth_dict[int(split_line[1])].append(int(split_line[0]))
             line = group_edges_file.readline()
         
-        for key, value in ground_truth_dict.iteritems():
+        for key, value in ground_truth_dict.items():
             self.ground_truth.append(value)
 
         group_edges_file.close()
     
     def initialise_clustered_set(self):
-        cluster_dict = { k: [] for k in range(1, self.cluster_number+1) }
+        cluster_dict = {k: [] for k in range(1, self.cluster_number+1)}
         
         group_edges_file = open(os.path.join(self.clustered_set_path, 'group-edges.csv'), 'r')
         
@@ -63,7 +63,7 @@ class GroundTruth:
             cluster_dict[int(split_line[1])].append(int(split_line[0]))
             line = group_edges_file.readline()
 
-        for key, value in cluster_dict.iteritems():
+        for key, value in cluster_dict.items():
             self.clustered_set.append(value)
 
         group_edges_file.close()
