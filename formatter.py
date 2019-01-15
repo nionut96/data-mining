@@ -13,7 +13,8 @@ if __name__ == '__main__':
         j = int(j) + 1
         nodes[i] = 1
         nodes[j] = 1
-        edges.append((i, j))
+        if i != j:
+            edges.append((i, j))
         line = core_file.readline()
 
     groups = dict()

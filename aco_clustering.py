@@ -12,10 +12,10 @@ def cluster(graph: UndirectedGraph):
             edges[(node, neigh)] = 10
             edges[(neigh, node)] = 10
             steps += 1
-    steps = int(1 * steps / 100) + 1
+    steps = int(0.1 * steps / 100) + 1
     nodes = [node for node in graph.nodes()]
 
-    for iteration in range(100):
+    for iteration in range(10):
         print('Iteration ' + str(iteration))
 
         for i in range(len(nodes)):
@@ -60,7 +60,8 @@ def cluster(graph: UndirectedGraph):
             if (node, neigh) in edges and edges[(node, neigh)] > 0.9 * suma:
                 vecini.append(neigh)
                 clust.add(neigh)
-                nodes.remove(neigh)
+                if neigh in nodes:
+                    nodes.remove(neigh)
                 del edges[(node, neigh)]
                 del edges[(neigh, node)]
         while len(vecini) != 0:
