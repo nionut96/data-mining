@@ -6,7 +6,7 @@ class Cluster:
         self.__graph = graph
         self.__nodes = nodes
         self.__node_set = set(nodes)
-        #self.__score = self.__score_func()
+        self.__score = 0
 
     def __score_func(self):
         ms = 0
@@ -32,6 +32,7 @@ class Cluster:
         return self.__nodes
 
     def score(self):
+        self.__score = self.__score_func()
         return self.__score
 
     def add(self, element):
