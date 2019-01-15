@@ -3,7 +3,7 @@ import os
 class GroundTruth:
     def __init__(self):
         self.ground_truth_path = "simple_dataset"
-        self.clustered_set_path = "simple_dataset_output"
+        self.clustered_set_path = "simple_dataset_out"
         self.cluster_number = 0
         self.clustered_set = []
         self.ground_truth_number = 0
@@ -100,7 +100,6 @@ class GroundTruth:
             maximum_tag_number = self.greatest_tag()
 
         total_tags = self.total_tags()
-
         return float(total_hits)/total_tags
 
     def greatest_tag(self):
@@ -115,8 +114,8 @@ class GroundTruth:
     def total_tags(self):
         counter = 0
 
-        for tag_index in range(0, len(self.tags)):
-            counter += len(self.tags[tag_index])
+        for cluster_index in range(0, len(self.clustered_set)):
+            counter += len(self.clustered_set[cluster_index])
 
         return counter
 
