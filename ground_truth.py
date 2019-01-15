@@ -99,8 +99,8 @@ class GroundTruth:
             total_hits += greatest_appearence_number
             maximum_tag_number = self.greatest_tag()
 
-        total_tags = self.total_tags()
-        return float(total_hits)/total_tags
+        total_clusters = self.total_clusters()
+        return float(total_hits)/total_clusters
 
     def greatest_tag(self):
         maximum_tag_number = 0
@@ -111,7 +111,7 @@ class GroundTruth:
 
         return maximum_tag_number
 
-    def total_tags(self):
+    def total_clusters(self):
         counter = 0
 
         for cluster_index in range(0, len(self.clustered_set)):
