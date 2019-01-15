@@ -4,7 +4,8 @@ from cluster import Cluster
 
 def cluster(graph: UndirectedGraph):
     cluster_list = [Cluster(graph, [x]) for x in graph.nodes()]
-    while len(cluster_list) != 1:
+    while len(cluster_list) != 195:
+        print('Iteration ' + str(len(cluster_list)))
         min_dist = 100000000
         left = None
         right = None
@@ -17,12 +18,12 @@ def cluster(graph: UndirectedGraph):
                         right = cluster_list[c2]
                         min_dist = dist
 
-        print(left)
-        print(right)
+        #print(left)
+        #print(right)
 
         cluster_list.remove(left)
         cluster_list.remove(right)
         cluster_list.append(Cluster.merge(left, right))
 
-        print(cluster_list)
+        #print(cluster_list)
     return cluster_list
