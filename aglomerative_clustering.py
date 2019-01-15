@@ -5,7 +5,7 @@ from cluster import Cluster
 def cluster(graph: UndirectedGraph):
     cluster_list = [Cluster(graph, [x]) for x in graph.nodes()]
     mod = sum([c.modularity_density() for c in cluster_list])
-    while len(cluster_list) != 1:
+    while len(cluster_list) != 1000:
         print('Iteration ' + str(len(cluster_list)))
 
         min_dist = 100000000
@@ -33,5 +33,5 @@ def cluster(graph: UndirectedGraph):
         mod += mod_dens
         print('Density ' + str(mod))
 
-        print(cluster_list)
+        # print(cluster_list)
     return cluster_list

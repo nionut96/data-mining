@@ -3,8 +3,8 @@ import os
 
 class GroundTruth:
     def __init__(self):
-        self.ground_truth_path = "big_cluster_dataset"
-        self.clustered_set_path = "big_cluster_dataset_out"
+        self.ground_truth_path = "email_dataset"
+        self.clustered_set_path = "email_dataset_out"
         self.cluster_number = 0
         self.clustered_set = []
         self.ground_truth_number = 0
@@ -119,7 +119,6 @@ class GroundTruth:
             counter += len(self.clustered_set[cluster_index])
 
         return counter
-
 
 
 ground_truth_object = GroundTruth()

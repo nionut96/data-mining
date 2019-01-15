@@ -15,7 +15,7 @@ def cluster(graph: UndirectedGraph):
     steps = int(0.1 * steps / 100) + 1
     nodes = [node for node in graph.nodes()]
 
-    for iteration in range(10):
+    for iteration in range(500):
         print('Iteration ' + str(iteration))
 
         for i in range(len(nodes)):

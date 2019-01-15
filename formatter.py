@@ -31,10 +31,10 @@ if __name__ == '__main__':
     core_file.close()
     core_gr_file.close()
 
-    nodes_file = open('nodes.csv', 'w+')
-    edges_file = open('edges.csv', 'w+')
-    groups_file = open('groups.csv', 'w+')
-    group_edges_file = open('group-edges.csv', 'w+')
+    nodes_file = open('email_dataset/nodes.csv', 'w+')
+    edges_file = open('email_dataset/edges.csv', 'w+')
+    groups_file = open('email_dataset/groups.csv', 'w+')
+    group_edges_file = open('email_dataset/group-edges.csv', 'w+')
 
     for node in nodes.keys():
         nodes_file.write(str(node) + '\n')
@@ -42,7 +42,9 @@ if __name__ == '__main__':
     for i, j in edges:
         edges_file.write(str(i) + ',' + str(j) + '\n')
 
-    for group in groups.keys():
+    gr = [gr for gr in groups.keys()]
+    gr.sort()
+    for group in gr:
         groups_file.write(str(group) + '\n')
 
     for n, g in group_edges:
