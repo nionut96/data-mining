@@ -1,9 +1,10 @@
 import os
 
+
 class GroundTruth:
     def __init__(self):
-        self.ground_truth_path = "simple_dataset"
-        self.clustered_set_path = "simple_dataset_out"
+        self.ground_truth_path = "big_cluster_dataset"
+        self.clustered_set_path = "big_cluster_dataset_out"
         self.cluster_number = 0
         self.clustered_set = []
         self.ground_truth_number = 0

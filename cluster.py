@@ -17,7 +17,7 @@ class Cluster:
                     ms += 1
                 else:
                     cs += 1
-        return cs / (2 * ms + cs)
+        return cs / 2 * ms
 
     def __contains__(self, node):
         return node in self.__node_set
@@ -27,6 +27,18 @@ class Cluster:
 
     def __repr__(self):
         return self.__str__()
+
+    def modularity_density(self):
+        ms = 0
+        cs = 0
+        node_cnt = len(self.__nodes)
+        for node in self.__nodes:
+            for neigh in self.__graph.neighbors(node):
+                if neigh in self.__node_set:
+                    ms += 1
+                else:
+                    cs += 1
+        return (2 * ms - cs) / node_cnt
 
     def nodes(self):
         return self.__nodes
