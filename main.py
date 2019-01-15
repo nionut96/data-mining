@@ -1,9 +1,11 @@
 from undirected_graph import UndirectedGraph
 from dataset_handler import *
-from aglomerative_clustering import *
+import aglomerative_clustering
+import aco_clustering
 
 if __name__ == '__main__':
-    dataset = DatasetParser('flickr_dataset')
+    dataset = DatasetParser('simple_dataset')
     graph = UndirectedGraph(dataset.nodes_count(), dataset.edges_list())
-    clusters = cluster(graph)
-    write_output('flickr_dataset_out', clusters)
+    clusters = aco_clustering.cluster(graph)
+    print(clusters)
+    write_output('simple_dataset_out', clusters)

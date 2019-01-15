@@ -6,7 +6,7 @@ class Cluster:
         self.__graph = graph
         self.__nodes = nodes
         self.__node_set = set(nodes)
-        self.__score = self.__score_func()
+        #self.__score = self.__score_func()
 
     def __score_func(self):
         ms = 0
@@ -33,6 +33,11 @@ class Cluster:
 
     def score(self):
         return self.__score
+
+    def add(self, element):
+        if element not in self.__node_set:
+            self.__nodes.append(element)
+            self.__node_set = self.__node_set.union(set([element]))
 
     @staticmethod
     def merge(left, right):
