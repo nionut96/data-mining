@@ -21,6 +21,8 @@ def cluster(graph: UndirectedGraph):
             ant = nodes[i]
             for step in range(steps):
                 next_nodes = graph.neighbors(ant)
+                if len(next_nodes) == 0:
+                    continue
                 # print(next_nodes)
                 prob = [edges[(ant, n)] for n in next_nodes]
                 # print('prob:',prob)

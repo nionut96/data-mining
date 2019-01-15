@@ -17,7 +17,7 @@ class Cluster:
                     ms += 1
                 else:
                     cs += 1
-        return cs / 2 * ms
+        return cs / (2 * ms + cs)
 
     def __contains__(self, node):
         return node in self.__node_set

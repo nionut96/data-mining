@@ -4,7 +4,7 @@ from cluster import Cluster
 
 def cluster(graph: UndirectedGraph):
     cluster_list = [Cluster(graph, [x]) for x in graph.nodes()]
-    while len(cluster_list) != 195:
+    while len(cluster_list) != 5:
         print('Iteration ' + str(len(cluster_list)))
         min_dist = 100000000
         left = None

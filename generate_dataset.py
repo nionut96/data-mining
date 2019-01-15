@@ -28,7 +28,7 @@ for i in range(1, nNodes + 1):
     fNodes.write(str(i) + "\n")
 fNodes.close()
 
-fGroup = open(dirName + "/group.csv", "w")
+fGroup = open(dirName + "/groups.csv", "w")
 for i in range(1, nGroups + 1):
     fGroup.write(str(i) + "\n")
 fGroup.close()
